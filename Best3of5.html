@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Conditional Demo</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    var weapons = ['rock' , 'paper', 'scissors'];
+    var p1 = 0;
+    var p2 = 0;
+    var round = 0;
+    do{
+      round += 1;
+      var playerOne = weapons[parseInt(Math.random()*weapons.length) %3];
+      var playerTwo = weapons[parseInt(Math.random()*weapons.length) %3];
+      console.log("Player One throws " + playerOne)
+      console.log("Player Two throws " + playerTwo)
+      if (playerOne == "rock") {
+        switch ( playerTwo ) {
+        case "rock":
+          console.log("It's a tie. Replay round " + round + ".");
+          round -= 1;
+          break;
+        case "paper":
+          console.log("Round " + round + " goes to Player Two!");
+          p2 += 1;
+          break;
+        case "scissors":
+          console.log("Round " + round + " goes to Player One!");
+          p1 += 1;
+          break;
+        }
+      }
+      if (playerOne == "paper") {
+      switch ( playerTwo ) {
+        case "rock":
+          console.log("Round " + round + " goes to Player One!");
+          p1 += 1;
+          break;
+        case "paper":
+          console.log("It's a tie. Replay round " + round + ".");
+          round -= 1;
+          break;
+        case "scissors":
+          console.log("Round " + round + " goes to Player Two!");
+          p2 += 1;
+          break;
+        }
+      }
+      if (playerOne == "scissors") {
+        switch ( playerTwo ) {
+        case "rock":
+          console.log("Round " + round + " goes to Player Two!");
+          p2 += 1;
+          break;
+        case "paper":
+          console.log("Round " + round + " goes to Player One!");
+          p1 += 1;
+          break;
+        case "scissors":
+          console.log("It's a tie. Replay round " + round + ".");
+          round -= 1;
+          break;
+        }
+      }
+      console.log("Score: Player One = "+p1+", Player Two = "+ p2)
+    } while ( p1 !== 3 && p2 !== 3 )
+    </script>
+  </body>
+</html>
