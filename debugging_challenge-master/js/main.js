@@ -31,16 +31,16 @@ function baabaaBlackSheep(totalBags) {
 function oneForMy() {
     for (var i = 0; i < 2; i++) {
         people = Object.keys(woolOwners[i]);
-        var person = people.toString();
-        console.log("one for my " + person);
+        //var person = people.toString();
+        console.log("one for my " + people.toString());
     }
 }
 
 baabaaBlackSheep(bags);
 oneForMy();
 
-var boy = Object.keys(woolOwners[2]);
-var littleBoy = boy[0];
-var whereHeLives = woolOwners[2][boy[1]];
+var boy = woolOwners[2];
+var littleBoy = Object.keys(boy)[0];
+var whereHeLives = boy.location;
 
 console.log("one for the " + littleBoy + " that lives " + whereHeLives);
