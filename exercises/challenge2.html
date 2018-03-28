@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Conditional Demo</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    var temperature = prompt("What's the temperature?")
+    var precipitation = confirm("Is there a chance of rain?")
+    var indoors = confirm("Is the pool indoors?")
+
+    if (temperature === 80) {
+      document.write("The temperature is 80 degrees");
+    }
+    else if (temperature > 80 && !precipitation) {
+      document.write("Time to swim!!");
+    }
+    else if (temperature > 80 && precipitation && indoors === true) {
+      document.write("Still okay to swim!")
+    }
+    else {
+      document.write("You might want to find a different activity")
+    }
+    </script>
+
+  </body>
+</html>
