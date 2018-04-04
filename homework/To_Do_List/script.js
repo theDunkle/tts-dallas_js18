@@ -4,10 +4,10 @@ var head2 = document.createElement('h2')
 head2.innerHTML = "To-Do List"
 body.appendChild(head2)
 
-var input = document.createElement('input')
-input.setAttribute('id', 'user-input')
-input.placeholder = 'Things to do'
-body.appendChild(input)
+var userInput = document.createElement('input')
+userInput.setAttribute('id', 'user-input')
+userInput.placeholder = 'Things to do'
+body.appendChild(userInput)
 
 var button = document.createElement('button')
 button.id = 'submit-item'
@@ -25,11 +25,23 @@ div.appendChild(todoList)
 
 button.addEventListener('click', function(event) {
     event.preventDefault()
-    console.log(input.value)
     var newItem = document.createElement('li')
-    newItem.innerHTML = "<input type='checkbox'>" + input.value
+    newItem.innerHTML = "<input type='checkbox'>" + userInput.value
     newItem.addEventListener('click', function(event) {
-        event.target.remove()
+        if (this.querySelector("input").checked) {
+          this.style.textDecoration = 'line-through';
+          var text = this.textContent
+          var todoArray = Array.from(todoList.children)
+          var index = todoArray.filter(function(item, index){
+            if (text === item.textContent){
+              return index;
+            }
+          })
+          console.log(index);
+        } else {
+          console.log("false");
+          this.style.textDecoration = 'none';
+        }
     })
     todoList.appendChild(newItem)
 })
