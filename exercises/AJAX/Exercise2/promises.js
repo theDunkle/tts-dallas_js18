@@ -16,12 +16,12 @@ $(document).ready(function(){
       .then(function(data){
         console.log(data)
         return data
-        self.append('<p>'data'</p>')
+        // self.append('<p>' + data + '</p>')
       })
       .catch(function() {
         console.log("Booo");
       });
     console.log(nameInText, nameEntered);
-    }
+
   });
 });
